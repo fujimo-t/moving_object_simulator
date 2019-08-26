@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>moving_object_simulator</name>
+  <version>0.0.0</version>
+  <description>ROS launch files to test moving object detection in Gazebo</description>
+  <maintainer email="fujimoto@aisl.cs.tut.ac.jp">Hironori Fujimoto</maintainer>
+  <license>TODO</license>
+  <url type="website">https://aisl-serv6.aisl.cs.tut.ac.jp:20443/fujimoto/moving_object_simulator</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>joy</exec_depend>
+  <exec_depend>mars_rover_description</exec_depend>
+  <exec_depend>teleop_twist_joy</exec_depend>
+  <exec_depend>turtlebot3_stereo_description</exec_depend>
+</package>
