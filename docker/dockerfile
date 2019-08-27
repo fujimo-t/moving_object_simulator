@@ -1,0 +1,27 @@
+FROM osrf/ros:melodic-desktop-full
+
+# Create workspace
+RUN mkdir -p /root/catkin_ws/src
+WORKDIR /root/catkin_ws/src
+
+# Get sources
+RUN git clone https://aisl-serv6.aisl.cs.tut.ac.jp:20443/fujimoto/moving_object_simulator.git
+RUN git clone https://aisl-serv6.aisl.cs.tut.ac.jp:20443/fujimoto/gazebo_factory_world.git
+RUN git clone https://aisl-serv6.aisl.cs.tut.ac.jp:20443/fujimoto/mars_rover_description.git
+RUN git clone https://aisl-serv6.aisl.cs.tut.ac.jp:20443/fujimoto/turtlebot3_stereo_description.git
+
+# Install dependencies
+RUN bash -c "apt-get update; \
+             source /opt/ros/melodic/setup.bash; \
+             rosdep install --from-paths . --ignore-src -y"
+
+# Do catkin_make to just generate setup.bash
+# There aren't code in packages which need compile
+WORKDIR /root/catkin_ws
+RUN bash -c "source /opt/ros/melodic/setup.bash; \
+             catkin_make"
+
+# Overwrite entrypoint to load catkin workspace
+RUN rm /ros_entrypoint.sh
+COPY ros_entrypoint.sh /ros_entrypoint.sh
+RUN chmod +x /ros_entrypoint.sh
