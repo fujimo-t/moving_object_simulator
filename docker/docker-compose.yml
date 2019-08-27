@@ -5,12 +5,14 @@ services:
     container_name: ros_master
     command: roscore
 
-  gazebo_factory_world:
+  gazebo:
     build: .
-    container_name: gazebo_factory_world
-    #command: roslaunch gazebo_factory_world factory_world.launch
-    command: rosrun rviz rviz
+    container_name: gazebo
+    command: roslaunch gazebo_factory_world factory_world.launch
+    runtime: nvidia
     environment: 
+      - ROS_HOSTNAME=gazebo
+      - ROS_MASTER_URI=http://ros_master:11311
       - DISPLAY
       - QT_X11_NO_MITSHM=1
     volumes: 
