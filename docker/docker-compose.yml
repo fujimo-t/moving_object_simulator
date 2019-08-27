@@ -1,0 +1,17 @@
+version: "2.3"
+services: 
+  ros_master:
+    build: .
+    container_name: ros_master
+    command: roscore
+
+  gazebo_factory_world:
+    build: .
+    container_name: gazebo_factory_world
+    #command: roslaunch gazebo_factory_world factory_world.launch
+    command: rosrun rviz rviz
+    environment: 
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+    volumes: 
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
