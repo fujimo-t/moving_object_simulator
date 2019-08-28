@@ -17,9 +17,13 @@ Robots is controlled by XBox Controller.
 
 ## Launch
 
+Plug Xbox controller to PC and then type commands:
+
 ```shell
 $ git clone https://aisl-serv6.aisl.cs.tut.ac.jp:20443/fujimoto/moving_object_simulator.git
 $ cd moving_object_simulator/docker
 $ xhost +local:root
 $ sudo docker-compose up
 ```
+
+Robots are controlled by A button + left and right stick.
