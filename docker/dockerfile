@@ -1,5 +1,14 @@
 FROM osrf/ros:melodic-desktop-full
 
+# Upgrade Gazebo to resolve access error to api.ignition.org
+# See http://answers.gazebosim.org/question/22263/error-in-rest-request-for-accessing-apiignitionorg/
+RUN apt-get update && \
+    apt-get install -y wget
+RUN echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list && \
+    wget http://packages.osrfoundation.org/gazebo.key -O - | apt-key add -
+RUN apt-get update && \
+    apt-get install -y gazebo9 
+
 # Create workspace
 RUN mkdir -p /root/catkin_ws/src
 WORKDIR /root/catkin_ws/src
