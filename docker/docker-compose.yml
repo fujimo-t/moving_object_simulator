@@ -17,3 +17,13 @@ services:
       - QT_X11_NO_MITSHM=1
     volumes: 
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
+  
+  spawn_robots:
+    build: .
+    container_name: spawn_robots
+    command: roslaunch --wait moving_object_simulator gazebo_simulation_spawn_robots.launch
+    environment:
+      - ROS_HOSTNAME=spawn_robots
+      - ROS_MASTER_URI=http://ros_master:11311
+    devices: 
+      - /dev/input/js0:/dev/input/js0
