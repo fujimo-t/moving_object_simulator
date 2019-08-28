@@ -7,7 +7,15 @@ RUN apt-get update && \
 RUN echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list && \
     wget http://packages.osrfoundation.org/gazebo.key -O - | apt-key add -
 RUN apt-get update && \
-    apt-get install -y gazebo9 
+    apt-get install -y gazebo9 \
+                       libignition-cmake-dev \
+                       libignition-common \
+                       libignition-common-dev \
+                       libignition-fuel-tools1-1 \
+                       libignition-fuel-tools1-dev \
+                       libsdformat6 \
+                       libsdformat6-dev \
+                       sdformat-sdf
 
 # Create workspace
 RUN mkdir -p /root/catkin_ws/src
