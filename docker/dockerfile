@@ -42,6 +42,14 @@ RUN bash -c "source /opt/ros/melodic/setup.bash && \
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility
 
+# Load ROS environment at docker exec bash
+RUN echo "source /opt/ros/melodic/setup.bash" >> /root/.bashrc
+RUN echo "source /root/catkin_ws/devel/setup.bash" >> /root/.bashrc
+
+# Install tools for development
+RUN apt-get update && \
+    apt-get install -y vim byobu
+
 # Overwrite entrypoint to load catkin workspace
 RUN rm /ros_entrypoint.sh
 COPY ros_entrypoint.sh /ros_entrypoint.sh
