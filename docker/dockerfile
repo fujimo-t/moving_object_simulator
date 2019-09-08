@@ -22,7 +22,7 @@ RUN mkdir -p /root/catkin_ws/src
 WORKDIR /root/catkin_ws/src
 
 # Get sources
-RUN git clone https://aisl-serv6.aisl.cs.tut.ac.jp:20443/fujimoto/moving_object_simulator.git
+RUN git clone https://github.com/fujimo-t/moving_object_simulator.git
 RUN git clone https://github.com/fujimo-t/gazebo_factory_world.git
 RUN git clone https://github.com/fujimo-t/mars_rover_description.git
 RUN git clone https://github.com/fujimo-t/turtlebot3_stereo_description.git
