@@ -5,7 +5,7 @@
   <description>ROS launch files to test moving object detection in Gazebo</description>
   <maintainer email="fujimoto@aisl.cs.tut.ac.jp">Hironori Fujimoto</maintainer>
   <license>TODO</license>
-  <url type="website">https://aisl-serv6.aisl.cs.tut.ac.jp:20443/fujimoto/moving_object_simulator</url>
+  <url type="website">https://github.com/fujimo-t/moving_object_simulator</url>
 
   <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>joy</exec_depend>
