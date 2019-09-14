@@ -17,6 +17,7 @@ services:
       - QT_X11_NO_MITSHM=1
     volumes: 
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - gazebo_root:/root
   
   spawn_robots:
     build: .
@@ -27,3 +28,6 @@ services:
       - ROS_MASTER_URI=http://ros_master:11311
     devices: 
       - /dev/input/js0:/dev/input/js0
+
+volumes: 
+  gazebo_root:
