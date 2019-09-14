@@ -32,6 +32,8 @@ services:
       - ROS_MASTER_URI=http://${COMPOSE_PROJECT_NAME}_master:11311
     devices: 
       - /dev/input/js0:/dev/input/js0
+    volumes: 
+      - gazebo_root:/root
 
 volumes: 
   gazebo_root:
